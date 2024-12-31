@@ -104,7 +104,7 @@ const Calendar = () => {
       days.push(
         <div
           key={`empty-${i}`}
-          className="h-24 border border-gray-200 bg-gray-50"
+          className="md:h-24 min-h-5 border border-gray-200 bg-gray-50"
         />
       );
     }
@@ -125,7 +125,7 @@ const Calendar = () => {
         <div
           key={day}
           onClick={() => handleDayClick(date)}
-          className={`h-24 border border-gray-200 p-2 cursor-pointer transition-colors
+          className={`md:h-24 min-h-5 border border-gray-200 p-2 cursor-pointer transition-colors
             ${isToday ? "bg-blue-50" : ""}
             ${isSelected ? "ring-2 ring-blue-500" : ""}
             hover:bg-gray-50`}
@@ -142,7 +142,7 @@ const Calendar = () => {
               </div>
             ))}
             {dayEvents.length > 2 && (
-              <div className="text-xs text-gray-500">
+              <div className="text-xs text-gray-500 pt-1">
                 +{dayEvents.length - 2} more
               </div>
             )}
@@ -214,8 +214,8 @@ const Calendar = () => {
   return (
     <Card className="max-w-4xl mx-auto">
       <CardContent className="p-6">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">
+        <div className="flex justify-between items-center md:mb-6">
+          <h2 className="text-xl md:text-2xl font-bold">
             {currentDate.toLocaleString("default", {
               month: "long",
               year: "numeric",
@@ -230,7 +230,9 @@ const Calendar = () => {
               className="flex items-center gap-2"
             >
               <Download className="h-4 w-4" />
+              <div className="hidden md:block">
               Export Month
+              </div>
             </Button>
             <Button variant="outline" size="icon" onClick={handlePrevMonth}>
               <ChevronLeft className="h-4 w-4" />
@@ -245,7 +247,7 @@ const Calendar = () => {
           {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
             <div
               key={day}
-              className="p-2 text-center font-medium text-gray-600"
+              className="pt-2 md:p-2 text-center text-sm md:text-base font-medium text-gray-600"
             >
               {day}
             </div>

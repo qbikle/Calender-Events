@@ -1,50 +1,113 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Dynamic Event Calendar Application
 
-Currently, two official plugins are available:
+[![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-brightgreen)](https://calender-events-two.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a **Dynamic Event Calendar Application** built with React.js, TypeScript, and Vite, showcasing advanced logic, clean UI design, and seamless deployment.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Core Functionality
+- **Calendar View**:
+  - Displays a dynamic monthly calendar grid.
+  - Navigate between months using "Previous" and "Next" buttons.
+- **Event Management**:
+  - Add events to specific days by clicking on a date.
+  - Edit or delete existing events.
+  - Each event includes:
+    - Name
+    - Start and end time
+    - Optional description
+- **Event List**:
+  - View all events for the selected day in a modal.
 
-- Configure the top-level `parserOptions` property like this:
+### Advanced Logic
+- Ensures no overlapping events (e.g., two events at the same time).
+- Automatically handles month transitions and edge cases like leap years.
+- Highlights the current day and selected date for better UX.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Data Persistence
+- Stores all events using **localStorage**, ensuring data is preserved across page refreshes.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Exportable Events
+- Export event lists for a specific month as **JSON** or **CSV**.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### UI Design
+- Built with **ShadCN components** for a modern and intuitive design.
+- Distinguishes weekends, weekdays, and highlights current/selected days.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Bonus Features
+- **Drag-and-Drop Rescheduling**: Move events between days effortlessly.
+- **Event Categorization**: Apply color codes for event types (Work, Personal, Others).
+
+## Installation
+
+### Prerequisites
+- **Node.js** or **Bun**
+- A package manager like `npm`, `yarn`, or `bun`.
+
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/qbikle/Calender-Events.git
+   cd Calender-Events
+   ```
+
+2. Install dependencies:
+   ```bash
+   bun install
+   ```
+   OR
+    ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   bun run dev
+   ```
+   OR
+   ```bash
+   npm run dev
+   ```
+
+4. Open in the browser:
+   ```plaintext
+   http://localhost:5173
+   ```
+
+## Deployment
+The project is live at [https://calender-events-two.vercel.app/](https://calender-events-two.vercel.app/).
+
+## Project Structure
+- **src/components**: Reusable UI components.
+- **src/pages**: Main application pages.
+- **src/utils**: Helper functions for calendar and event logic.
+- **public**: Static assets like images.
+
+## Technologies
+- **React.js** with TypeScript
+- **Vite** for development
+- **ShadCN components** for UI
+- **LocalStorage** for persistent data storage
+- **Bun** for runtime efficiency
+
+## Documentation
+### Calendar Logic
+- Dynamically calculates month grids.
+- Handles leap years and transitions like Jan 31 → Feb 1.
+
+### Event Management
+- Validates event time ranges to prevent overlaps.
+- Enables event filtering and management.
+
+### Export Events
+- Provides **CSV** export options for all events in a selected month.
+
+## Future Enhancements
+- Integration with external calendars (Google, Outlook).
+- User authentication for personalized event management.
+- Collaborative event sharing.
+
+## License
+This project is licensed under the **MIT License**.
