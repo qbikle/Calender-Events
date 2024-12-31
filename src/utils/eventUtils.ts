@@ -1,6 +1,5 @@
 import { Event } from "@/types";
 
-// eventUtils.ts
 export const checkEventOverlap = (
   newEvent: Omit<Event, "id">,
   existingEvents: Event[],
